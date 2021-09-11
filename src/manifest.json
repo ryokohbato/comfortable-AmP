@@ -3,8 +3,20 @@
   "name": "Comfortable AmP",
   "version": "0.1.0",
   "author": "ryokohbato",
+  "description": "Amazon Prime用ブラウザ拡張機能\n自動広告スキップ・次話ポップアップ非表示",
+
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
 
   "browser_action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "24": "images/icon24.png",
+      "32": "images/icon32.png"
+    },
     "default_title": "Comfortable AmP",
     "default_popup": "popup/popup.html"
   },
