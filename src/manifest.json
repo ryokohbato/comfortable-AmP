@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Comfortable AmP",
+  "version": "0.1.0",
+  "author": "ryokohbato",
+
+  "browser_action": {
+    "default_title": "Comfortable AmP",
+    "default_popup": "popup/popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "js": ["contents/main.js"],
+      "matches": ["https://www.amazon.co.jp/gp/*"]
+    }
+  ],
+
+  "background": {
+    "scripts": ["background/background.js"],
+    "persistent": false
+  },
+
+  "permissions": [
+    "storage",
+    "tabs"
+  ]
+}

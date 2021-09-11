@@ -1,0 +1,11 @@
+[delete-next-popup="true"] .nextUpWrapper {
+  display: none;
+}
+
+[skip-advertisement="true"] .scalingVideoContainerBottom > .rendererContainer > video {
+  display: none;
+}
+
+[skip-advertisement="true"] .scalingVideoContainerBottom > .rendererContainer > video:last-child {
+  display: block;
+}

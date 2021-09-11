@@ -1,0 +1,108 @@
+@use '../../node_modules/destyle.css/destyle.css';
+
+body {
+  background-color: #1C2632;
+  color: white;
+  font-size: 14px;
+  width: 320px;
+}
+
+h1 {
+  color: #FFB0A8;
+  font-size: 20px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+main {
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+footer {
+  font-size: 12px;
+  margin-left: 8px;
+  margin-bottom: 8px;
+
+  a {
+    display: inline-block;
+    margin-bottom: 4px;
+    text-decoration: underline;
+  }
+}
+
+.checkbox-wrapper {
+  line-height: 16px;
+  margin-left: 8px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.alt-checkbox {
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px white;
+  cursor: pointer;
+  display: inline-block;
+  height: 12px;
+  line-height: 20px;
+  margin-right: 12px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+
+  &-content {
+    background-color: #FFB0A8;
+    border-radius: 50%;
+    height: 10px;
+    margin-left: 1px;
+    margin-top: 1px;
+    position: relative;
+    width: 10px;
+
+    &::after {
+      content: "OFF";
+      font-size: 12px;
+      left: 32px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+input[type="checkbox"]:checked + .alt-checkbox {
+  background-color: #ffffff33;
+
+  & > .alt-checkbox-content {
+    transform: translateX(12px);
+
+    &::after {
+      color: #FFB0A8;
+      content: "ON";
+      left: 20px;
+    }
+  }
+}
+
+.alt-checkbox__text {
+  cursor: pointer;
+  padding-left: 72px;
+}
+
+.separator {
+  background-color: #7ba2d15d;
+  height: 2px;
+  margin: 0 8px 16px;
+  text-align: center;
+}
