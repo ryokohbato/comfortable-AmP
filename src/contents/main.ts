@@ -33,28 +33,43 @@ window.addEventListener("load", () =>
   const targetElement = document.querySelector("html") as HTMLElement;
 
   const observer = new MutationObserver(function() {
-    if (document.querySelectorAll('[skip-advertisement="true"] .adSkipButton').length > 0)
+    if (document.querySelector('[skip-advertisement="true"] .scalingVideoContainerBottom > .rendererContainer') != null && tabId > 0)
     {
-      if (tabId >= 0)
+      if (document.querySelector('[skip-advertisement="true"] .scalingVideoContainerBottom > .rendererContainer')!.childElementCount >= 2)
       {
-        browser.runtime.sendMessage(
-          {
-            From: "tabs",
-            Title: "mute-tab",
-            Value: tabId,
-          }
-        );
-        (document.querySelector('[skip-advertisement="true"] .adSkipButton') as HTMLElement).click();
-        browser.runtime.sendMessage(
-          {
-            From: "tabs",
-            Title: "unmute-tab",
-            Value: tabId,
-          }
-        );
+        if ((document.querySelector('[skip-advertisement="true"] .scalingVideoContainerBottom > .rendererContainer')!
+          .firstElementChild as HTMLElement).style.visibility === "hidden")
+        {
+          browser.runtime.sendMessage(
+            {
+              From: "tabs",
+              Title: "unmute-tab",
+              Value: tabId,
+            }
+          );
+        }
+        else
+        {
+          browser.runtime.sendMessage(
+            {
+              From: "tabs",
+              Title: "mute-tab",
+              Value: tabId,
+            }
+          );
+        }
       }
+    }
+
+    if (document.querySelector('[skip-advertisement="true"] .adSkipButton') != null && tabId > 0)
+    {
+      (document.querySelector('[skip-advertisement="true"] .adSkipButton') as HTMLElement).click();
+      let skipDate = new Date();
+      console.log(`%ccomfortable-AmP: 広告をスキップしました (${skipDate})`, "color: #FFB0A8;");
     }
   });
 
-  observer.observe(targetElement, {subtree: true, childList: true});
+  observer.observe(targetElement, { subtree: true, childList: true, attributes: true });
+  let loadDate = new Date();
+  console.log(`%ccomfortable-AmP: ロードしました (${loadDate})`, "color: #FFB0A8;");
 })
