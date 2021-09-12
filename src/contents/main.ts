@@ -33,7 +33,7 @@ window.addEventListener("load", () =>
   const targetElement = document.querySelector("html") as HTMLElement;
 
   const observer = new MutationObserver(function() {
-    if (document.querySelectorAll('.adSkipButton').length > 0)
+    if (document.querySelectorAll('[skip-advertisement="true"] .adSkipButton').length > 0)
     {
       if (tabId >= 0)
       {
@@ -44,7 +44,7 @@ window.addEventListener("load", () =>
             Value: tabId,
           }
         );
-        (document.querySelectorAll('.adSkipButton')[0] as HTMLElement).click();
+        (document.querySelector('[skip-advertisement="true"] .adSkipButton') as HTMLElement).click();
         browser.runtime.sendMessage(
           {
             From: "tabs",
