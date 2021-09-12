@@ -13,7 +13,8 @@ browser.runtime.onMessage.addListener((message: MessagesFromBackground, sender) 
   }
   else if (message["Timing"] === "runtime-popup")
   {
-    console.log(message["Value"]);
+    // TOTO: 変更終了通知を表示
+    // console.log(message["Value"]);
   }
 })
 

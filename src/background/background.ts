@@ -1,6 +1,7 @@
 import { browser } from "webextension-polyfill-ts";
 import { MessagesToBackground } from "../modules/messagesToBackground";
 
+// 初回インストール時、広告自動スキップと次話ポップアップ非表示をどちらも有効にする
 browser.runtime.onInstalled.addListener(() =>
 {
   browser.storage.sync.set({
@@ -89,12 +90,10 @@ browser.runtime.onMessage.addListener(async (message: MessagesToBackground, send
     }
     else if (message.Title === "mute-tab")
     {
-      console.log(`${(message.Value as number)}をミュートします。`)
       browser.tabs.update((message.Value as number), {muted: true});
     }
     else if (message.Title === "unmute-tab")
     {
-      console.log(`${(message.Value as number)}をアンミュートします。`)
       browser.tabs.update((message.Value as number), {muted: false});
     }
   }
