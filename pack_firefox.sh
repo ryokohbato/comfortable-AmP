@@ -1,4 +1,5 @@
 #!/bin/bash
 
-cd dist
+mkdir -p bin
+cd production
 zip -r ../bin/comfortable-AmP .
