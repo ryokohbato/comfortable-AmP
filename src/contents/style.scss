@@ -1,11 +1,23 @@
+// [Linux]
+
+// ポップアップ非表示
 [delete-next-popup="true"] .nextUpWrapper {
   display: none;
 }
 
+// 動画 (広告・コンテンツのどちらも) を非表示
 [skip-advertisement="true"] .scalingVideoContainerBottom > .rendererContainer > video {
   display: none;
 }
 
+// コンテンツのみを表示
 [skip-advertisement="true"] .scalingVideoContainerBottom > .rendererContainer > video:last-child {
   display: block;
+}
+
+
+// [Windows]
+
+[delete-next-popup="true"] .atvwebplayersdk-nextupcard-wrapper {
+  display: none;
 }

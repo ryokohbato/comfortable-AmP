@@ -1,6 +1,7 @@
 import { browser } from "webextension-polyfill-ts";
 import { MessagesToBackground } from "../modules/messagesToBackground";
 import { MessagesFromBackground } from "../modules/messagesToPopup";
+import { adSkipButton } from "../modules/queries";
 
 import "./style.scss"
 
@@ -61,12 +62,15 @@ window.addEventListener("load", () =>
       }
     }
 
-    if (document.querySelector('[skip-advertisement="true"] .adSkipButton') != null && tabId > 0)
-    {
-      (document.querySelector('[skip-advertisement="true"] .adSkipButton') as HTMLElement).click();
-      let skipDate = new Date();
-      console.log(`%ccomfortable-AmP: 広告をスキップしました (${skipDate})`, "color: #FFB0A8;");
-    }
+    adSkipButton.forEach(x =>
+      {
+        if (document.querySelector(x) != null && tabId > 0)
+        {
+          (document.querySelector(x) as HTMLElement).click();
+          let skipDate = new Date();
+          console.log(`%ccomfortable-AmP: 広告をスキップしました (${skipDate})`, "color: #FFB0A8;");
+        }
+      })
   });
 
   observer.observe(targetElement, { subtree: true, childList: true, attributes: true });
