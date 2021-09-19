@@ -3,5 +3,5 @@ export const adSkipButton: Array<string> = [
   '[skip-advertisement="true"] .adSkipButton',
 
   // Windows
-  '.atvwebplayersdk-infobar-container > div:nth-child(1) > div:nth-child(3) > div:nth-child(2)',
+  '[skip-advertisement="true"] .atvwebplayersdk-infobar-container > div:nth-child(1) > div:nth-child(3) > div:nth-child(2)',
 ]
